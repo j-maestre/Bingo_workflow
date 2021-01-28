@@ -5,7 +5,7 @@ on:
       - Bingo_Workflow
 jobs:
   syntax_check_job:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
