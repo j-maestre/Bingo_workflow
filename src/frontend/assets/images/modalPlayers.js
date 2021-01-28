@@ -1,62 +1,62 @@
-export const modalPlayers =()=>{
-    const controllers = () => {
-        let addButton=document.getElementById('addplayer');
+export const modalPlayers = () => {
+  const controllers = () => {
+    let addButton = document.getElementById("addplayer");
 
-        if (addButton) {
-            let uList=document.getElementById("listPlayers");
-            let playersNames = JSON.parse(localStorage.getItem('playersNames')) || [];
-            playersNames.forEach((name,index) => {
-                let li=document.createElement('li');
-                li.innerHTML = `<span class='players'>${index+1}</span><p>${name}</p>`;
+    if (addButton) {
+      let uList = document.getElementById("listPlayers");
+      let playersNames = JSON.parse(localStorage.getItem("playersNames")) || [];
+      playersNames.forEach((name, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `<span class='players'>${
+          index + 1
+        }</span><p>${name}</p>`;
 
-                li.onclick=()=>{//Click en borrar jugador
-                    li.remove();
-                    playersNames=playersNames.filter((item) => item!=name);
-                    localStorage.setItem('playersNames',JSON.stringify(playersNames));
-                }
-                uList.appendChild(li);
-            });//Fin for each
+        li.onclick = () => {
+          //Click en borrar jugador
+          li.remove();
+          playersNames = playersNames.filter((item) => item != name);
+          localStorage.setItem("playersNames", JSON.stringify(playersNames));
+        };
+        uList.appendChild(li);
+      }); //Fin for each
 
+      addButton.onclick = () => {
+        var regEx = /[aA1-zZ9]/;
+        let name = document.getElementById("fname").value;
+        if (regEx.test(name)) {
+          let li = document.createElement("li");
+          li.innerHTML = `<span class='players'>${
+            uList.children.length + 1
+          }</span><p>${name}</p>`;
+          uList.appendChild(li);
+          if (window.localStorage) {
+            playersNames.push(name);
+            localStorage.setItem("playersNames", JSON.stringify(playersNames));
+          }
+          document.getElementById("fname").value = "";
 
-            addButton.onclick=()=>{
-                var regEx= /[aA1-zZ9]/;
-                let name=document.getElementById("fname").value;
-                if(regEx.test(name)){
-                
-                    let li=document.createElement('li');
-                    li.innerHTML = `<span class='players'>${uList.children.length+1}</span><p>${name}</p>`;
-                    uList.appendChild(li);
-                    if (window.localStorage){
-                        playersNames.push(name);
-                        localStorage.setItem('playersNames',JSON.stringify(playersNames));
-                    }
-                    document.getElementById("fname").value="";
-
-                    li.onclick=()=>{//Click en borrar jugador despues de añadirlo sin recargar
-                        li.remove();
-                        playersNames=playersNames.filter((item) => item!=name);
-                        localStorage.setItem('playersNames',JSON.stringify(playersNames));
-                        document.getElementById("fname").value="";
-                    }
-                }else{
-                    alert("Nombre no permitido");
-
-                }
-            }
-        }//Fin id addButton
-   
-
-
-        let unmuteBtn=document.getElementById('unmuteBtn');
-        unmuteBtn.onclick=()=>{
-            let video=document.getElementById('videoBackground');
-            video.muted = false;
+          li.onclick = () => {
+            //Click en borrar jugador despues de añadirlo sin recargar
+            li.remove();
+            playersNames = playersNames.filter((item) => item != name);
+            localStorage.setItem("playersNames", JSON.stringify(playersNames));
+            document.getElementById("fname").value = "";
+          };
+        } else {
+          alert("Nombre no permitido");
         }
+      };
+    } //Fin id addButton
 
-    }
-    
-    return{template:    
-    `
+    let unmuteBtn = document.getElementById("unmuteBtn");
+    unmuteBtn.onclick = () => {
+      let video = document.getElementById("videoBackground");
+      video.muted = false;
+    };
+  };
+
+  return {
+    template: `
     <div id="playersForm" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -77,5 +77,7 @@ export const modalPlayers =()=>{
             </div>  
         </div>
 
-    `,controllers:controllers}
-}
+    `,
+    controllers: controllers,
+  };
+};

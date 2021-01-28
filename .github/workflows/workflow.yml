@@ -1,0 +1,12 @@
+name: main_workflow
+on:
+  push:
+    branches:
+      - Bingo_Workflow
+jobs:
+  syntax_check_job:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Checkout code
+      uses: actions/checkout@v2
+      
