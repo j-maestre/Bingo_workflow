@@ -134,6 +134,8 @@ El token del proyecto
 ```
 token: ${{ secrets.surge_token }}
 ```
+![Alt text](/img/14.png)
+
 
 El token del proyecto nos lo proporciona surge, para ello, primero deberemos instalrnos surge con
 
@@ -167,3 +169,91 @@ Y quedaría tal que así:
 
 Una vez tenemos todo listo para el despliegue, hacemos un push para comprobar que funciona todo correctamente
 
+![Alt text](/img/15.png)
+
+Accedemos a _xemaMaestreBingo.surge.sh_ y comprobamos que se ha desplegado correctamente
+
+![Alt text](/img/16.png)
+
+##  Job de envío de notificación a los usuarios del proyecto
+
+Empezamos creando una carpeta llamada "actions" dentro del directorio .github, que contendrá los siguientes archivos:
+
+- Un archivo index.js encargado de enviar el email
+- Un archivo action.yml encargado de recibir las variables necesarias para el envio
+- Un archivo package.json encargado de las dependencias de las librerias
+
+![Alt text](/img/17.png)
+
+Para crear el archivo package.json ejecutamos en la terminal
+```
+$ npm init
+```
+Nos creará el archivo package.json al que le tendremos que añadir las siguientes dependencias:
+```
+"dependencies": {
+    "@actions/core": "^1.2.6",
+    "nodemailer": "^6.4.17"
+  }
+```
+```
+npm install
+```
+
+Una vez hecho el paso anterior, nos dirigimos al archivo _action.yml_ que deberemos configurar de la siguiente manera:
+
+- email_sender -> El email desde el que enviaremos el email
+- password -> Nuestra contraseña del email
+- email_to_send -> Destinatario
+- runs -> Utilizando nodejs, le diremos que use nuestro js minificado dentro del directorio _dist_
+
+![Alt text](/img/18.png)
+
+
+Una vez hecho el archivo yml, nos dirijimos al index.js, el encargado de enviar el email
+
+Para ello, deberemos confugurar las siguientes variables.
+
+- La dirección de email con el que enviaremos el email
+- La password del email
+- Email destinatario
+- Los jobs anteriores (syntax_check_job, test_execution_job, build_statics_job, deploy_job)
+
+El valor de estas variables se encuentra en _core_ (@actions/core)
+
+![Alt text](/img/19.png)
+
+Definimos la variable _transporter_, que nos servirá para poder enviar el email
+
+![Alt text](/img/20.png)
+
+Completamos el contenido del email, utilizando las variables mencionadas anteriormente
+
+![Alt text](/img/21.png)
+
+Una vez todo configurado correctamente, enviamos el email utilizando la variable transporter creada anteriormente
+
+![Alt text](/img/22.png)
+
+Aun no podemos enviar el email, para ello, primero debemos definir nuestro email, contraseña y email de destino 
+como secrets de github, mencionados anteriormente
+
+![Alt text](/img/23.png)
+
+Después, en nuestro _worflow.yml_ recogeremos estos secrets de la siguiente manera
+
+![Alt text](/img/24.png)
+
+Y recogeremos tambien el resultado de los jobs anteriores
+
+![Alt text](/img/24.png)
+
+
+Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente
+
+
+<!-- Empezamos instalando las librerias necesarias: -->
+<!-- 
+```
+npm install nodemailer@2.7.2 -g
+``` -->

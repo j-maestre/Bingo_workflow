@@ -1,0 +1,38 @@
+
+name: "Send email"
+description: "Resultado workflow"
+
+inputs:
+  email_sender:
+    description: "Email sender"
+    required: true
+  password:
+    description: "Password"
+    required: true
+  email_to_send:
+    description: "Email to send"
+    required: true
+
+  syntax_check_job:
+    description: "syntax_check_job"
+    required: true
+
+  test_execution_job:
+    description: "test_execution_job"
+    required: true
+
+  build_statics_job:
+    description: "build_statics_job"
+    required: true
+
+  deploy_job:
+    description: "deploy_job"
+    required: true
+
+outputs:
+  message:
+    description: "Response email Message"
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
