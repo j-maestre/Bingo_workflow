@@ -44,14 +44,14 @@ jobs:
     - name: artifact_download
       uses: actions/download-artifact@v2
       with: 
-        name: artifact_generated
-      - name: deploy_artifact
-        uses: dswistowski/surge-sh-action@v1
-        with:
-          domain: xemaMaestreBingo.surge.sh
-          project: .
-          login: ${{ secrets.surge_login }}
-          token: ${{ secrets.surge_token }}
+      name: artifact_generated
+    - name: deploy_artifact
+      uses: dswistowski/surge-sh-action@v1
+      with:
+        domain: xemaMaestreBingo.surge.sh
+        project: .
+        login: ${{ secrets.surge_login }}
+        token: ${{ secrets.surge_token }}
 
 
 
