@@ -255,10 +255,3 @@ ncc build index.js -o dist
 ```
 
 Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente
-
-
-<!-- Empezamos instalando las librerias necesarias: -->
-<!-- 
-```
-npm install nodemailer@2.7.2 -g
-``` -->
