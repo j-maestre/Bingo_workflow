@@ -30,5 +30,5 @@ linter job
 Deberemos introducir las variables de entorno necesarias, a destacar, la variable "GITHUB_TOKEN", una variable interna de cada repositorio que contiene el token del repositorio.
 
 _Son una alternativa al uso de contraseñas para la autenticación en GitHub cuando utilizas la API de GitHub. Desaparecen automaticamente al cabo de un año si no son usados durante el mismo._
-
+ 
 (ejercicio2)
