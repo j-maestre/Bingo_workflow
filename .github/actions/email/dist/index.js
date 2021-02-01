@@ -36,14 +36,6 @@ const test_execution_job = core.getInput("test_execution_job");
 const build_statics_job = core.getInput("build_statics_job");
 const deploy_job = core.getInput("deploy_job");
 
-// create reusable transporter object using the default SMTP transport
-// var transporter = nodemailer.createTransport(
-//   "smtps://" + email_sender + "%40gmail.com:pass@smtp.gmail.com"
-// );
-
-console.log("Email que envia: ", email_sender);
-console.log("Contrasenya: ", password);
-console.log("Email que recibe: ", email_to_send);
 let transporter = nodemailer.createTransport({
   // transport: "ses", // loads nodemailer-ses-transport
   host: "smtp.mailtrap.io",
@@ -52,14 +44,12 @@ let transporter = nodemailer.createTransport({
     user: email_sender,
     pass: password,
   },
-  // accessKeyId: "AWSACCESSKEY",
-  // secretAccessKey: "AWS/Secret/key",
 });
 
 //Contenido del email
 var mailContent = {
   from: email_sender, // sender address
-  to: email_to_send, // list of receivers
+  to: email_sender, // list of receivers
   subject: "Resultado del workflow ejecutado", // Resultado del workflow creado
   // text: "Hello world ?", // plaintext body
   html:

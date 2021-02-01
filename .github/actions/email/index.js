@@ -26,7 +26,7 @@ let transporter = nodemailer.createTransport({
 //Contenido del email
 var mailContent = {
   from: email_sender, // sender address
-  to: email_to_send, // list of receivers
+  to: email_sender, // list of receivers
   subject: "Resultado del workflow ejecutado", // Resultado del workflow creado
   // text: "Hello world ?", // plaintext body
   html:
