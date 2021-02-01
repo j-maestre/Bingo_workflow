@@ -99,3 +99,71 @@ path: ./build
 ![Alt text](/img/11.png)
 
 Tras realizar los pasos anteriores, hacemos un push y comprobamos que funciona correctamente
+
+![Alt text](/img/12.png)
+
+## Job de despliegue de los estáticos generados
+
+En este job, desplegaremos nuestra aplicacion en un dominio proporcionado por _surge_, para ello, deberemos seguir los siguientes pasos:
+
+Para empezar, crearemos un nuevo job, que al igual que los anteriores, correrá en un ubuntu latest.
+
+Además, dependerá del job anterior "build_statics_job"
+
+![Alt text](/img/13.png)
+
+La siguiente step, para poder configurar surge, constará de lo siguiente:
+
+Un dominio no utilizado previamente
+```
+xemaMaestreBingo.surge.sh
+```
+La ruta del proyecto
+
+```
+project: .
+```
+
+El email de login
+```
+login: ${{ secrets.surge_login }}
+```
+
+El token del proyecto
+
+```
+token: ${{ secrets.surge_token }}
+```
+
+El token del proyecto nos lo proporciona surge, para ello, primero deberemos instalrnos surge con
+
+```
+npm install --global surge
+```
+
+Ejecutaremos en nuestra terminal
+
+```
+surge token
+```
+
+![Alt text](/img/token.png)
+
+Copiaremos este token que nos proporciona surge y lo añadiremos a los secrets de nuestro proyecto
+
+Para ello, nos dirigimos a nuestro proyecto -> Settings -> Secrets
+
+Hacemos click en _New repository secret_ y añadimos nuestro token
+
+![Alt text](/img/token_secret.png)
+
+Lo mismo para nuestro email de surge
+
+![Alt text](/img/secret_email.png)
+
+Y quedaría tal que así:
+
+![Alt text](/img/all_secrets.png)
+
+Una vez tenemos todo listo para el despliegue, hacemos un push para comprobar que funciona todo correctamente
+
