@@ -42,11 +42,9 @@ jobs:
   needs: build_statics_job
   steps:
     - name: artifact_download
-        uses: actions/download-artifact@v2
-        with: 
-          name: artifact_generated
-
-          
+      uses: actions/download-artifact@v2
+      with: 
+        name: artifact_generated
       - name: deploy_artifact
         uses: dswistowski/surge-sh-action@v1
         with:
