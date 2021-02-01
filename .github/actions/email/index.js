@@ -26,7 +26,7 @@ let transporter = nodemailer.createTransport({
 //Contenido del email
 var mailContent = {
   from: email_sender, // sender address
-  to: email_sender, // reciver adress
+  to: email_sender, // reciver adressss
   subject: "Resultado del workflow ejecutado", // Resultado del workflow creado
   html:
     "<h2>Se ha realizado un push en la rama githubActions_improvement que ha provocado la ejecución del workflow Bingo_Workflow con los siguientes resultados</h2>" +
