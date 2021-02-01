@@ -22,7 +22,7 @@ console.log("Email que envia: ", email_sender);
 console.log("Contrasenya: ", password);
 console.log("Email que recibe: ", email_to_send);
 let transporter = nodemailer.createTransport({
-  transport: "ses", // loads nodemailer-ses-transport
+  // transport: "ses", // loads nodemailer-ses-transport
   host: "smtp.mailtrap.io",
   port: 2525,
   auth: {
