@@ -22,4 +22,13 @@ Tendrá por el momento un job llamado syntax_check_job, que correrá en un ubunt
 
 ![Alt text](/img/2.png)
 
+
+Después, constará de un linter job. El superlinter encuentra problemas y los informa a la salida de la consola. Se sugieren correcciones en la salida de la consola, pero no se corrigen automáticamente
+linter job
+![Alt text](/img/3.png)
+
+Deberemos introducir las variables de entorno necesarias, a destacar, la variable "GITHUB_TOKEN", una variable interna de cada repositorio que contiene el token del repositorio.
+
+_Son una alternativa al uso de contraseñas para la autenticación en GitHub cuando utilizas la API de GitHub. Desaparecen automaticamente al cabo de un año si no son usados durante el mismo._
+
 (ejercicio2)

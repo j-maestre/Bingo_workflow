@@ -1,0 +1,4 @@
+doc
+build
+*.test.js
+.github
