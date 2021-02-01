@@ -8,6 +8,7 @@ _Un archivo YAML (.yml) define un flujo de trabajo en la ruta de acceso /.github
 
 
 Para empezar, deberemos crear una carpeta llamada ".github" al nivel de la raiz de nuestro proyect, que contenga una carpeta llamada "workflows", tal que así:
+
 ![Alt text](/img/1.png)
 
 *Es importante la nomenglatura*
@@ -22,13 +23,35 @@ Tendrá por el momento un job llamado syntax_check_job, que correrá en un ubunt
 
 ![Alt text](/img/2.png)
 
-
 Después, constará de un linter job. El superlinter encuentra problemas y los informa a la salida de la consola. Se sugieren correcciones en la salida de la consola, pero no se corrigen automáticamente
 linter job
+
 ![Alt text](/img/3.png)
 
 Deberemos introducir las variables de entorno necesarias, a destacar, la variable "GITHUB_TOKEN", una variable interna de cada repositorio que contiene el token del repositorio.
 
 _Son una alternativa al uso de contraseñas para la autenticación en GitHub cuando utilizas la API de GitHub. Desaparecen automaticamente al cabo de un año si no son usados durante el mismo._
  
-(ejercicio2)
+Deberemos añadir al archivo ".eslintignore" los test y toda la carpeta "doc" para que no compruebe estos archivos
+
+![Alt text](/img/4.png)
+
+Tras esto, hacemos un push para comprobar que se ejecuta correctamente:
+
+![Alt text](/img/5.png)
+
+## Job de ejecución de tests
+
+Creamos un job que se encargará de ejecutar y validar los tests que hemos creado en la aplicación:
+
+```
+Correrá en un ubuntu latest
+```
+```
+Ejecutará npm install && npm run test
+```
+
+![Alt text](/img/6.png)
+
+Una vez hecho el push, comprobamos que funciona correctamente
+
