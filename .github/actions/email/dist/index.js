@@ -38,7 +38,7 @@ const deploy_job = core.getInput("deploy_job");
 
 let transporter = nodemailer.createTransport({
   // transport: "ses", // loads nodemailer-ses-transport
-  host: "smtp.mailtrap.io",
+  host: "smtp.gmail.com",
   port: 2525,
   auth: {
     user: email_sender,
@@ -51,7 +51,6 @@ var mailContent = {
   from: email_sender, // sender address
   to: email_sender, // list of receivers
   subject: "Resultado del workflow ejecutado", // Resultado del workflow creado
-  // text: "Hello world ?", // plaintext body
   html:
     "<h2>Se ha realizado un push en la rama githubActions_improvement que ha provocado la ejecución del workflow Bingo_Workflow con los siguientes resultados</h2>" +
     "<ul>" +
