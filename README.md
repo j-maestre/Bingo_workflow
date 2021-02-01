@@ -248,6 +248,11 @@ Y recogeremos tambien el resultado de los jobs anteriores
 
 ![Alt text](/img/24.png)
 
+Compilamos el proyecto con:
+
+```
+ncc build index.js -o dist
+```
 
 Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente
 

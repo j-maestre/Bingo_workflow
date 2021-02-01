@@ -52,18 +52,6 @@ var mailContent = {
     "</ul>",
 };
 
-// "Se ha realizado un push en la rama githubActions_improvement que" +
-//     "ha provocado la ejecución del workflow Bingo_Workflow con los" +
-//     "siguientes resultados:" +
-//     "- syntax_check_job: " +
-//     syntax_check_job +
-//     "- test_execution_job: " +
-//     test_execution_job +
-//     "- build_statics_job: " +
-//     build_statics_job +
-//     "- deploy_job: " +
-//     deploy_job,
-
 //Enviar email
 transporter.sendMail(mailContent, function (error, info) {
   if (error) {

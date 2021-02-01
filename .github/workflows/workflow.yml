@@ -65,7 +65,6 @@ jobs:
           email_sender: ${{ secrets.EMAIL_SENDER }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           email_to_send: ${{ secrets.EMAIL_TO_SEND }}
-
           syntax_check_job: ${{ needs.syntax_check_job.outputs.job-status }}
           test_execution_job: ${{ needs.test_execution_job.outputs.job-status }}
           build_statics_job: ${{needs.build_statics_job.outputs.job-status}}
