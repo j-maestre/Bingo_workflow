@@ -31,7 +31,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Build statics
-      run: npm install; npm run buildDev
+      run: npm install
+      run: npm run buildDev
     - name: artifact
       uses: actions/upload-artifact@v2
       with:
