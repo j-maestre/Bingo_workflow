@@ -18,8 +18,13 @@ const deploy_job = core.getInput("deploy_job");
 //   "smtps://" + email_sender + "%40gmail.com:pass@smtp.gmail.com"
 // );
 
-var transporter = nodemailer.createTransport({
+console.log("Email que envia: ", email_sender);
+console.log("Contrasenya: ", password);
+console.log("Email que recibe: ", email_to_send);
+let transporter = nodemailer.createTransport({
   transport: "ses", // loads nodemailer-ses-transport
+  host: "smtp.mailtrap.io",
+  port: 2525,
   auth: {
     user: email_sender,
     pass: password,
@@ -54,6 +59,7 @@ var mailContent = {
 
 //Enviar email
 transporter.sendMail(mailContent, function (error, info) {
+  console.log("Enviando mail...");
   if (error) {
     return console.log(error);
   }
