@@ -254,4 +254,4 @@ Compilamos el proyecto con:
 ncc build index.js -o dist
 ```
 
-Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente
+Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente:
