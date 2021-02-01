@@ -18,7 +18,7 @@ jobs:
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
           VALIDATE_JAVASCRIPT_ES: true
   test_execution_job:
-    runs-on: ubunutu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Check Tests
       run: npm install; npm run test
