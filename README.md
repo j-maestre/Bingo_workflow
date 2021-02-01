@@ -45,13 +45,57 @@ Tras esto, hacemos un push para comprobar que se ejecuta correctamente:
 Creamos un job que se encargará de ejecutar y validar los tests que hemos creado en la aplicación:
 
 ```
+Ejecutará Checkout code creado anteriormente
+```
+![Alt text](/img/6.png)
+
+```
 Correrá en un ubuntu latest
 ```
 ```
 Ejecutará npm install && npm run test
 ```
 
-![Alt text](/img/6.png)
+![Alt text](/img/7.png)
 
 Una vez hecho el push, comprobamos que funciona correctamente
 
+![Alt text](/img/8.png)
+
+## Job de generación de estáticos
+
+_Los artefactos de compilación son archivos producidos por una compilación. Normalmente, estos incluyen paquetes de distribución, archivos WAR, informes, archivos de registro, etc._
+
+Para generar los artifacts, deberemos crear un job con las siguientes caracteristicas:
+
+```
+Correra en un ubuntu-latest
+```
+```
+Dependerá de los dos jobs anteriores (syntax cehckout && test_execution)
+```
+```
+Realizará un checkout code
+```
+![Alt text](/img/9.png)
+
+Generará los statics con:
+
+```
+npm install
+```
+```
+npm run buildDev
+```
+
+![Alt text](/img/10.png)
+
+El proyecto minificado por buildDev se encontrará en la carpeta "build", que será donde depositaremos los artifacts generados
+
+```
+path: ./build
+```
+
+![Alt text](/img/11.png)
+
+Tras realizar los pasos anteriores, hacemos un push y comprobamos que funciona correctamente
