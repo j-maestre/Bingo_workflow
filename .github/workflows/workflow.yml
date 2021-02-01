@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v2
         with: 
           name: artifact
-      - name: deploy_artifact
+      - name: deploy_artifact 
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: xemaMaestreBingo.surge.sh
