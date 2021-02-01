@@ -15,7 +15,7 @@ const deploy_job = core.getInput("deploy_job");
 
 let transporter = nodemailer.createTransport({
   // transport: "ses", // loads nodemailer-ses-transport
-  host: "smtp.mailtrap.io",
+  host: "smtp.gmail.com",
   port: 2525,
   auth: {
     user: email_sender,
