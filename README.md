@@ -304,4 +304,5 @@ Y comprobamos que nos cambia la fecha
 
 ![Alt text](/img/33.png)
 
-Ultima versión desplegada el dia: Wed Feb 3 18:48:51 UTC 2021
+
+Ultima versión desplegada el dia: Wed Feb 3 18:55:26 UTC 2021
