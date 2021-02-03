@@ -301,3 +301,7 @@ Una vez seguidos los pasos anteriores, hacemos un push para comprobar que funcio
 ![Alt text](/img/32.png)
 
 Y comprobamos que nos cambia la fecha
+
+
+Ultima versión desplegada el dia: `date`
+
