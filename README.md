@@ -298,5 +298,4 @@ git push
 
 Una vez seguidos los pasos anteriores, hacemos un push para comprobar que funciona correctamente
 
- 
 
