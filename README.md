@@ -246,7 +246,7 @@ Después, en nuestro _worflow.yml_ recogeremos estos secrets de la siguiente man
 
 Y recogeremos tambien el resultado de los jobs anteriores
 
-![Alt text](/img/24.png)
+![Alt text](/img/25.png)
 
 Compilamos el proyecto con:
 
@@ -255,3 +255,48 @@ ncc build index.js -o dist
 ```
 
 Una vez todo listo, procedemos a hacer el push para comprobar que todo funciona correctamente:
+
+![Alt text](/img/26.png)
+
+## Job de actualización del README principal del proyecto
+
+En este job, actualizaremos el README.md con una linea al final con la fecha de la ultima modificación del proyecto,
+para ello, haremos los siguientes pasos:
+
+Un nuevo job llamado *update_readme_job* que correra en un _ubuntu-latest_ y que se ejucatará si el job encargado del despliegue funciona correctamente
+
+![Alt text](/img/27.png)
+
+Una step encargada de hacer un check del codigo
+
+![Alt text](/img/28.png)
+
+Una step encargada de modificar el fichero _README.md_
+
+![Alt text](/img/29.png)
+
+Una step encargada de hacer el push, para ello, deberemos configurar las variables necesarias para github:
+
+```
+user.name
+```
+```
+user.email
+```
+![Alt text](/img/30.png)
+
+```
+git add
+```
+```
+git commit
+```
+```
+git push
+```
+![Alt text](/img/31.png)
+
+Una vez seguidos los pasos anteriores, hacemos un push para comprobar que funciona correctamente
+
+
+

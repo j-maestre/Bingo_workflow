@@ -69,4 +69,19 @@ jobs:
           test_execution_job: ${{ needs.test_execution_job.outputs.job-status }}
           build_statics_job: ${{needs.build_statics_job.outputs.job-status}}
           deploy_job: ${{ needs.deploy_job.outputs.job-status }}
-      
+  update_readme_job:
+    runs-on: ubuntu-latest
+    needs: deploy_job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Change readme
+        run: "sed -i '$d' README.md; echo -e '\nUltima versión desplegada el dia: `date`' >> README.md"
+      - name: Update readme
+        run: |
+          git config user.name j-maestre
+          git config user.email xemaiestacio@gmail.com
+          git add README.MD
+          git commit -m "Actualización README ultima modificación"
+          git push -u origin Bingo_Workflow
+          
