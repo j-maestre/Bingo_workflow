@@ -104,7 +104,13 @@ Tras realizar los pasos anteriores, hacemos un push y comprobamos que funciona c
 
 ## Job de despliegue de los estáticos generados
 
-En este job, desplegaremos nuestra aplicacion en un dominio proporcionado por _surge_, para ello, deberemos seguir los siguientes pasos:
+En este job, desplegaremos nuestra aplicacion en un dominio proporcionado por _surge_
+
+### Que es surge?
+
+_Surge para desplegar tu aplicación web en la red, de forma simple y con un solo comando_ 
+
+Para desplegarlo, deberemos seguir los siguientes pasos:
 
 Para empezar, crearemos un nuevo job, que al igual que los anteriores, correrá en un ubuntu latest.
 
