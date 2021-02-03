@@ -81,8 +81,8 @@ jobs:
         run: |
           git config user.name j-maestre
           git config user.email xemaiestacio@gmail.com
-          git add README.MD
+          git add README.md
           git commit -m "Actualización README ultima modificación"
           git push -u origin Bingo_Workflow
-          
+
           
