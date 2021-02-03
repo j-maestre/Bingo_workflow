@@ -271,7 +271,7 @@ Una step encargada de hacer un check del codigo
 
 ![Alt text](/img/28.png)
 
-Una step encargada de modificar el fichero _README.md_
+Una step encargada de eliminar la ultima linea con _sed_ y añadir una nueva con la fecha en el fichero _README.md_
 
 ![Alt text](/img/29.png)
 
@@ -298,4 +298,6 @@ git push
 
 Una vez seguidos los pasos anteriores, hacemos un push para comprobar que funciona correctamente
 
+![Alt text](/img/32.png)
 
+Y comprobamos que nos cambia la fecha

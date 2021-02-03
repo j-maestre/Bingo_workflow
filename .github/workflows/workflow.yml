@@ -76,7 +76,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Change readme
-        run: "sed -i '$d' README.md; echo -e '\nUltima versión desplegada el dia: `date`' >> README.md"
+        run: "sed -i '$d' README.md; echo -e '\nUltima versión desplegada el dia: '`date` >> README.md"
       - name: Update readme
         run: |
           git config user.name j-maestre
